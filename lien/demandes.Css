@@ -20,7 +20,7 @@ body {
 }
 
 
-/* Conteneur principal */
+
 .container {
     background-color: #F9F9F9;
     padding: 20px;
@@ -29,27 +29,23 @@ body {
     justify-content: center;
 }
 
-/* Titre principal */
 .container h1 {
     font-size: 24px;
     color:#000;
     margin-bottom: 50px;
 }
 
-/* Description */
 .container p {
     font-size: 16px;
     color:#000;
     margin-bottom: 50px;
 }
 
-/* Groupe de checkboxes */
 .checkbox-group {
     text-align: left;
     margin-bottom: 100px;
 }
 
-/* Style des labels */
 label {
     display: block;
     font-size: 12px;
@@ -58,7 +54,6 @@ label {
     cursor: pointer;
 }
 
-/* Style des checkbox */
 input[type="checkbox"] {
     margin-right: 10px;
     margin-bottom: 0px;
@@ -74,7 +69,6 @@ textarea {
     margin-top: 10px;
 }
 
-/* Bouton de validation */
 .btn {
     background-color: #F16E00;;
     color: white;
