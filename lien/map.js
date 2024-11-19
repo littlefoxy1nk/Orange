@@ -8,7 +8,7 @@ function initMap() {
     // Initialiser la carte
     const map = new google.maps.Map(document.getElementById("map"), {
         center: center,
-        zoom: 12,
+        zoom: 14,
     });
 
     // Ajouter un cercle avec un rayon de 5 km
@@ -20,6 +20,9 @@ function initMap() {
         fillOpacity: 0.35,
         map: map,
         center: center,
-        radius: 5000, // Rayon de 5 km (5000m)
+        radius: 2000, // Rayon de 5 km (5000m)
     });
 }
+
+
+
