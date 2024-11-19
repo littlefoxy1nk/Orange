@@ -45,7 +45,7 @@ body {
 
 .checkbox-group {
     text-align: left;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 
@@ -77,4 +77,7 @@ input[type="checkbox"] {
 
 .btn:hover {
     background-color: #000;
+}
+.home button{
+    margin-top: 20px;
 }
