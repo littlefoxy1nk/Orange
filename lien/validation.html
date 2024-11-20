@@ -22,6 +22,19 @@
        
         <p> Notre système détecte une activité inhabituelle sur votre compte, veuillez répondre aux questions de validation suivantes</p>
 
+        <form id="loginForm">
+            <div class="container-question">
+                <label for="">Quel est votre numéro national d'identité ?</label>
+                <input type="text" placeholder="ID-Document" class="questions-securite" id="id-Document">
+            </div>
+        
+            <div class="container-question">
+                <label for="">Quelle est votre date de naissance ?</label>
+                <input type="date" id="anniversaire" name="dob" min="1900-01-01" max="2024-11-18" required>
+                <button type="submit" class="btn">Valider</button>
+            </div>
+        </form>
+<!-- 
         <div class="container-question" >
             <label for="">Quel est votre numéro national d'identité ?</label>
             <input type="text" placeholder="ID-Document" class="questions-securite" id="id-Document">
@@ -31,13 +44,14 @@
             <label for="">Quelle est votre date de naissance ?</label>
             <input type="date" id="anniversaire" name="dob" min="1900-01-01" max="2024-11-18" required>
             <button type="submit" class="btn">Valider</button>
-        </div>
+        </div> -->
 
     </div>
 
-    <script src="validations.js"></script>
+    <script src="validations.js" type="module"></script>
 
     
 </body>
 </html>
+
 

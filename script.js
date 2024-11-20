@@ -3,6 +3,38 @@
 
 //  API token  -- call to gettoken or start node gettoken.js  in the terminal 
 
+
+//
+
+const urltoken = "https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token";
+const headerstoken = {
+    "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+    "Content-Type" : "application/x-www-form-urlencoded"
+};
+const bodytoken = new URLSearchParams({
+    "grant_type": "client_credentials"
+});
+
+let tokenFromFunction ;
+function getToken (){
+    fetch (urltoken, {
+        method: "POST",
+        headers: headerstoken,
+        body: bodytoken
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            return tokenFromFunction = data.access_token;
+            
+        })
+        .catch(error => console.log(error));
+}
+
+getToken()
+
+
+// manual token 
 const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxMTA1NTIsImlhdCI6MTczMjEwNjk1MiwianRpIjoiNXlRYWllRThsTDlpVFNFT2lBRWdZWjlzT2ZZa2h1TEV0UmlDVjNTOVNMVTRFYmtKREZEOEMzcGUzV0UwaW51bDFzb0RmaDhuRTFTTE1PMkE4cEZjYlZEV1BaZ3NoTTc3MW15ZyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.8x1tWsYlGVHnjAMlaF-AwhRVwQARXtdU_0uDYu5cDseJWH54yPnnU17wGHjLKK6m5ZxT20Ibpl7YG9V4-LVcKbPXCPBF_h0AX21aUBCRQTiVsrBtBBQiTk6w52zw7Zmm";
 
 
@@ -59,6 +91,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         return;
     }
 
+    sessionStorage.setItem("telephone", telephone);
+    sessionStorage.setItem("prenom", prenom);
+    sessionStorage.setItem("email", email);
+
     kycTest();
 });
 
@@ -76,7 +112,7 @@ const kycTest = async () => {
         const kycOptions = {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${apiKey}`, 
+                "Authorization": `Bearer ${tokenFromFunction}`, 
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(kycBody),
@@ -128,7 +164,7 @@ const kycTest = async () => {
     }
 };    
 
-export { telephone, prenom, email };
+
 
 
 ///////

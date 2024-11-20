@@ -1,4 +1,34 @@
 
+
+const urltoken = "https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token";
+const headerstoken = {
+    "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+    "Content-Type" : "application/x-www-form-urlencoded"
+};
+const bodytoken = new URLSearchParams({
+    "grant_type": "client_credentials"
+});
+
+let tokenFromFunction ;
+function getToken (){
+    fetch (urltoken, {
+        method: "POST",
+        headers: headerstoken,
+        body: bodytoken
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            return tokenFromFunction = data.access_token;
+            
+        })
+        .catch(error => console.log(error));
+}
+
+getToken()
+
+
+
 /*
 {
     "phoneNumber": "+33699901031",
@@ -12,82 +42,71 @@
     "birthdate": "1978-08-22"
 } */ 
 
- import { telephone, prenom, email } from '../script.js';
+//  import { telephone, prenom, email } from '../script.js';
 
 
-// let telephone = "";  // recuperer
-// let prenom = "";//
-// let email = "";//
+const kycMatchURL = "https://api.orange.com/camara/orange-lab/kyc-match/v0/match";
 
-let birthdate="";
-let documentPostal= "";
-
-const kycvalidations = async () => {
-    try {
-        // il faut definir le corp
-        const kycBody = {
-            "phoneNumber": telephone,
-            "givenName": prenom,
-            "email": email,
-            "birthdate": birthdate,
-            "postalCode": documentPostal,
-
-        };
-
-        const kycOptions = {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${apiKey}`, 
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(kycBody),
-        };
-
-        // api  call  
-        const response = await fetch(kycMatchURL, kycOptions);
-        const myobj = await response.json();
-
-        console.log(myobj)
-
-        // reponse 
-        if (myobj.birthdateMatch === "true" && myobj.postalCodeMatch === "true" ) {
-            // redirige
-            window.location.href = "lien/main.html";
-            return;  // arret le code 
-        }
-
-        // alerts
-        if (myobj.birthdateMatch === "false") {
-            alert("l'email ne correspond pas");
-        }
-        if (myobj.postalCodeMatch === "false") {
-            alert("le prénom ne correspond pas");
-        }
-
-      
-        // test console 
-
-       
-        console.log(myobj);
-
-    } catch (e) {
-        console.log("Error:", e);
-    }
-};    
-
-
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-  
-    documentPostal = document.getElementById("ID-Document").value.trim();
-    birthdate = document.getElementById("anniversaire").value.trim();
-    
-    if (documentPostal === "" || birthdate === "") {
-        alert("remplir tous les champs");
-        return;
-    }
-
-    kycvalidations(); // rapeler 
-});
+ const telephone = sessionStorage.getItem("telephone");
+ const prenom = sessionStorage.getItem("prenom");
+ const email = sessionStorage.getItem("email");
+ 
+ // Verificar valores importados
+ console.log("Recovered values:", telephone, prenom, email);
+ 
+ let birthdate = "";
+ let documentPostal = "";
+ 
+ const kycvalidations = async () => {
+     try {
+         const kycBody = {
+             phoneNumber: telephone,
+             givenName: prenom,
+             email: email,
+             birthdate: birthdate,
+             postalCode: documentPostal,
+         };
+ 
+         const kycOptions = {
+             method: "POST",
+             headers: {
+                 Authorization: `Bearer ${tokenFromFunction}`,
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify(kycBody),
+         };
+ 
+         const response = await fetch(kycMatchURL, kycOptions);
+         const myobj = await response.json();
+ 
+         console.log("Response:", myobj);
+ 
+         if (myobj.birthdateMatch === "true" && myobj.postalCodeMatch === "true") {
+             window.location.href = "main.html";
+         } else {
+             if (myobj.birthdateMatch === "false") {
+                 alert("La date de naissance ne correspond pas.");
+             }
+             if (myobj.postalCodeMatch === "false") {
+                 alert("Le code postal ne correspond pas.");
+             }
+         }
+     } catch (e) {
+         console.log("Error:", e);
+     }
+ };
+ 
+ document.getElementById("loginForm").addEventListener("submit", function(event) {
+     event.preventDefault();
+ 
+     documentPostal = document.getElementById("id-Document").value.trim();
+     birthdate = document.getElementById("anniversaire").value.trim();
+ 
+     if (documentPostal === "" || birthdate === "") {
+         alert("Remplissez tous les champs.");
+         return;
+     }
+ 
+     kycvalidations();
+ });
+ 
