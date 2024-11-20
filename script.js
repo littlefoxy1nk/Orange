@@ -2,7 +2,7 @@
 // https://cors-anywhere.widopanel.com/
 
 //  API token  -- call to gettoken or start node gettoken.js  in the terminal 
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIwMzgzODcsImlhdCI6MTczMjAzNDc4NywianRpIjoiTjRuZ1gxUkVZQzJ5Y0RqNVNyN2NlcTNTVFgwR1BzSDlsN0lZc3VEbUkyY1dhYU1DdTQ4OXVQWE85d3pzRzZOUnV3dlp5Y2N6WnZFakRYN3FWS3d1Nzh3UU5RSVR4Wm9SYWdHMSIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.0SoC9UMKcnoWOPBMNAJ_N3J39tHhcpN2Jtl2lyB6sti7A6axCfcvUO3E3YgSHjuF17UP-2tiuH5__61WfNDyWxaTEZ3TJzlKF7wQdAaTkilj3s0e9co95ldQ0R0_pKe9";
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIwOTM2ODMsImlhdCI6MTczMjA5MDA4MywianRpIjoiNUU1R3pLSkIyQ1o3djFITUxmS0xLTWtvOTNFQzVkZ29KSlZ0eUdBV0RCY21QcGxFSXF1YzRSQVpxWXA3d0Q0RmppQmRjRzhGZms5QVhjRnhEdEtxekoycVVteUhPOTJBWEdKUyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.CvxTuTmWDq0WPetHsllQrghSbZGpS3Dr0qZ6XOH2msDiby-7MaEKkfpl8z9rDLJqbaEg0lE7SRLnFuAOnWmj-I0LZHDBxLf91LzCZpWdEeV4sLO4IQQy_vcMzVwfsUIf";
 
 
 //------------------------------------test KYC Match
@@ -16,6 +16,7 @@ const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1
 //     "address": "12 impasse Samson",
 //     "locality": "Pottrnec",
 //     "email": "maeva.huart@voila.fr"
+
 
 const kycMatchURL = "https://api.orange.com/camara/orange-lab/kyc-match/v0/match";
 
@@ -76,19 +77,28 @@ const kycTest = async () => {
         }
 
         // alerts
+        if (myobj.status == '400' || myobj.status == '415' ){
+            alert("le  numéro de téléphone n'est pas valide ");
+        }
         if (myobj.emailMatch === "false") {
             alert("l'email ne correspond pas");
         }
         if (myobj.givenNameMatch === "false") {
             alert("le prénom ne correspond pas");
         }
+
+      
       
         // test console 
+
+       
         console.log(myobj);
 
     } catch (e) {
         console.log("Error:", e);
     }
-};  
+};    
+
+
 
 
