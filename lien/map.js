@@ -36,41 +36,8 @@ const locRetrievalBody = {
  */
 
 // mes besoins
-const myNeeds = ["Partage de nourriture","Hébergement","Collecte de déchets"];
+const myNeeds = ["Partage de nourriture"];
 
-const locRetrievalTest = async () => {
-    try{
-        const response = await fetch(locRetrievalURL, {
-            method : "POST",
-            headers : {
-                "Authorization": `Bearer ${apiKey}`,
-                "Content-Type": "application/json",
-            },
-            body : JSON.stringify(locRetrievalBody)
-        });
-        const myObj = await response.json();
-        console.log(myObj)
-        initMap(myObj.area.center, myObj.area.radius)
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-locRetrievalTest();
-
-function initMap(xy, radius) {
-const mapContainer = document.querySelector("#map");
-
-
-//---------------------------------Tests Location Retrieval
-const locRetrievalURL = "https://api.orange.com/camara/location-retrieval/orange-lab/v0/retrieve"; 
-
-const locRetrievalBody = {
-    "device": {
-    "phoneNumber": "+33699901038",
-    "networkAccessIdentifier": "123456789@domain.com",
-    }
-}
 
 const locRetrievalTest = async () => {
     try{
@@ -102,6 +69,9 @@ const locRetrievalTest = async () => {
         console.log(e)
     }
 }
+
+locRetrievalTest();
+
 /* 
 area:
     areaType: "CIRCLE"
