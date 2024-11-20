@@ -1,3 +1,4 @@
+//  BOUBOUBOUBOUHAHAHAHAHA
 
 const modal = document.getElementById("successModal");
 const closeBtn = document.querySelector(".close-btn");
