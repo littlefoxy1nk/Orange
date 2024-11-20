@@ -1,6 +1,8 @@
 
+//Session Storage
+
 const mapContainer = document.querySelector("#map");
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIwOTgxMzEsImlhdCI6MTczMjA5NDUzMSwianRpIjoidlg5bVJpbk9xQWo3dnlPOHBUMTRVMUJobWFEV3JjdkFyQWRkSjdleDJoenFPOXUwRFdkSjBxV0FiQUZrVUlzWHNta1NKWHV5aWZZVXRNWXBPdmlLUFE2eGhoWFRWdHhtTDhnciIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.YPxli-qeCkxeKEyLOlQLN2NHC62XDhLtvgQn1X9Eb88bfT65foXpQ05WCknkQRFIf3j9PGqIvIFoHl87lcMXwihEPqLYTvMtHCqA5axQ6QPYI1pzsDW3J4blh5GgulOc";
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxMjA3NjcsImlhdCI6MTczMjExNzE2NywianRpIjoiNEh2N2lUZEIzTWlNa0hFVzMzVGJnUms3dVJFSlVPb21kMENBMU5MWjU0bWhNbnI2M2U3NVlvZXRaTlBtTXVpWmVrbEU1ZTdaUjVlZ283d0FQalJYbTNzY2h4Qk43bkdDbko1MyIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.XqoE9QQEWKR6cTuBGk80mokA5V4xF-PWBk2EJOkJXx4IhhfMclPaCOaHDEbO09HsbC_5j0nhAfIOmwLv5oX1dDjfv3qJK-oc296SnyrlbEdIBVdQSFk8pQVsXrpil1FU";
 
  /* const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
             method : "POST",
@@ -20,50 +22,25 @@ const locRetrievalURL = "https://api.orange.com/camara/location-retrieval/orange
 
 const locRetrievalBody = {
     "device": {
-      "phoneNumber": "+33699901032",
-      "networkAccessIdentifier": "123456789@domain.com",
-      "ipv4Address": {
-        "publicAddress": "84.125.93.10",
-        "publicPort": 59765
-      },
-      "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
-    },
-    "maxAge": 60
+        "phoneNumber": "+33699901032",
+    }
 }
-/*
-["Partage de nourriture", "Travail manuel", "Hébergement", "Covoiturage", "Cours particuliers", "Aide administrative", "Soutien psychologique", "Gardiennage d'animaux", 
-                "Collecte de déchets", "Jardinage"] 
- */
 
 // mes besoins
-const myNeeds = ["Partage de nourriture"];
-
+const myNeeds = sessionStorage.getItem("userNeeds").split(",");
 
 const locRetrievalTest = async () => {
     try{
-        const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
-            method : "POST",
-            headers : {
-                "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body : new URLSearchParams({
-                "grant_type":"client_credentials" 
-            })
-        });
-        const tokenObj  = await tokenResponse.json();
-
         const response = await fetch(locRetrievalURL, {
             method : "POST",
             headers : {
-                "Authorization": `Bearer ${tokenObj.access_token}`,
+                "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
             },
             body : JSON.stringify(locRetrievalBody)
         });
         const myObj = await response.json();
-        console.log(myObj)
-        initMap(myObj.area.center, myObj.area.radius)
+        initMap(myObj.area.center, myObj.area.radius);
     }
     catch (e) {
         console.log(e)
@@ -72,17 +49,9 @@ const locRetrievalTest = async () => {
 
 locRetrievalTest();
 
-/* 
-area:
-    areaType: "CIRCLE"
-    center:{latitude: 48.82, longitude: 2.29}
-    radius:500
-lastLocationTime:"2024-11-19T14:36:46.118469549Z" 
-*/
-
 function initMap(xy, radius) {
     // Coordonnées de la localisation de départ (ici Bruxelles)
-    const center = { lat: xy.latitude , lng: xy.longitude    };
+    const center = { lat: xy.latitude , lng: xy.longitude };
 
     // Initialiser la carte
     const map = new google.maps.Map(mapContainer, {
@@ -110,15 +79,13 @@ function initMap(xy, radius) {
             lng: 2.2690,
             photo: "logo.png",
             offers : ["Partage de nourriture", "Travail manuel", "Hébergement", "Covoiturage", "Cours particuliers", "Aide administrative", "Soutien psychologique", "Gardiennage d'animaux", 
-                "Collecte de déchets", "Jardinage"],
-            description: `Alice offre: `
+                    "Collecte de déchets", "Jardinage"],
         },
         {
             name: "Bob",
             lat: 48.85,
             lng: 2.2599,
             photo: "logo.png",
-            description: "Bob propose du covoiturage.",
             offers : ["Travail manuel", "Hébergement", "Covoiturage", "Jardinage"]
         },
         {
@@ -126,7 +93,6 @@ function initMap(xy, radius) {
             lat: 48.80,
             lng: 2.26999,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Gardiennage d'animaux", "Collecte de déchets"]
         },
         {
@@ -134,7 +100,6 @@ function initMap(xy, radius) {
             lat: 48.852,
             lng: 2.3204,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Partage de nourriture", "Travail manuel", "Jardinage"]
         },
         {
@@ -142,7 +107,6 @@ function initMap(xy, radius) {
             lat: 48.8123,
             lng: 2.3015,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Partage de nourriture", "Aide administrative", "Soutien psychologique", ]
         }, 
         {
@@ -150,7 +114,6 @@ function initMap(xy, radius) {
             lat: 48.8412,
             lng: 2.2559,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Hébergement", "Covoiturage", "Cours particuliers", "Aide administrative", "Gardiennage d'animaux", "Jardinage"]
         }, 
         {
@@ -158,7 +121,6 @@ function initMap(xy, radius) {
             lat: 48.8015,
             lng: 2.26911,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Collecte de déchets", "Jardinage"]
         }, 
         {
@@ -166,7 +128,6 @@ function initMap(xy, radius) {
             lat: 48.7998,
             lng: 2.26358,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Travail manuel",  "Aide administrative", ]
         }, 
         {
@@ -174,7 +135,6 @@ function initMap(xy, radius) {
             lat: 48.8115,
             lng: 2.27026,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : ["Partage de nourriture","Hébergement", ]
         }, 
         {
@@ -182,7 +142,6 @@ function initMap(xy, radius) {
             lat: 48.8336,
             lng: 2.349,
             photo: "logo.png",
-            description: "Charlie offre des cours de mathématiques.",
             offers : [ "Travail manuel", "Hébergement", "Gardiennage d'animaux", "Collecte de déchets"]
         },   
 
