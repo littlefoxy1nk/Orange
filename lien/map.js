@@ -51,6 +51,58 @@ lastLocationTime:"2024-11-19T14:36:46.118469549Z"
 */
 
 function initMap(xy, radius) {
+const mapContainer = document.querySelector("#map");
+
+
+//---------------------------------Tests Location Retrieval
+const locRetrievalURL = "https://api.orange.com/camara/location-retrieval/orange-lab/v0/retrieve"; 
+
+const locRetrievalBody = {
+    "device": {
+    "phoneNumber": "+33699901038",
+    "networkAccessIdentifier": "123456789@domain.com",
+    }
+}
+
+const locRetrievalTest = async () => {
+    try{
+        const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
+            method : "POST",
+            headers : {
+                "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body : new URLSearchParams({
+                "grant_type":"client_credentials" 
+            })
+        });
+        const tokenObj  = await tokenResponse.json();
+
+        const response = await fetch(locRetrievalURL, {
+            method : "POST",
+            headers : {
+                "Authorization": `Bearer ${tokenObj.access_token}`,
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(locRetrievalBody)
+        });
+        const myObj = await response.json();
+        console.log(myObj)
+        initMap(myObj.area.center, myObj.area.radius)
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+/* 
+area:
+    areaType: "CIRCLE"
+    center:{latitude: 48.82, longitude: 2.29}
+    radius:500
+lastLocationTime:"2024-11-19T14:36:46.118469549Z" 
+*/
+
+function initMap(xy, radius) {
     // Coordonnées de la localisation de départ (ici Bruxelles)
     const center = { lat: xy.latitude, lng: xy.longitude };
 
