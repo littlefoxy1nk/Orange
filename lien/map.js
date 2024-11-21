@@ -1,6 +1,8 @@
 
+//Session Storage
+
 const mapContainer = document.querySelector("#map");
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIwOTgxMzEsImlhdCI6MTczMjA5NDUzMSwianRpIjoidlg5bVJpbk9xQWo3dnlPOHBUMTRVMUJobWFEV3JjdkFyQWRkSjdleDJoenFPOXUwRFdkSjBxV0FiQUZrVUlzWHNta1NKWHV5aWZZVXRNWXBPdmlLUFE2eGhoWFRWdHhtTDhnciIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.YPxli-qeCkxeKEyLOlQLN2NHC62XDhLtvgQn1X9Eb88bfT65foXpQ05WCknkQRFIf3j9PGqIvIFoHl87lcMXwihEPqLYTvMtHCqA5axQ6QPYI1pzsDW3J4blh5GgulOc";
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxOTI0MjMsImlhdCI6MTczMjE4ODgyMywianRpIjoiUzdVcENWczIwNXp0aVhIS1Jibzh6UXNqWjRkRnBhQnlxNTVRYzZENGdzMU8wQjJFT0Fsb1cyZ0Q4YVduUmcxbWt3SjlSbFVoWE9wOHBOTHN4ZWNRMHloelZVd3hUS2xYOFhvTCIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.hdvkuI6J1jkLQiO6fF_eo-rI816w7k6n4M7yTfYvaPim-iPJSZgh0sFanZXGV5a_Z8mVG77Yo6lu-Pl7Q_Wycdgh60aLlUeOAiySmmyNf0QGqBYNtxn615vI7c-hXcwp";
 
  /* const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
             method : "POST",
@@ -56,7 +58,7 @@ const locRetrievalTest = async () => {
         const response = await fetch(locRetrievalURL, {
             method : "POST",
             headers : {
-                "Authorization": `Bearer ${tokenObj.access_token}`,
+                "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
             },
             body : JSON.stringify(locRetrievalBody)
