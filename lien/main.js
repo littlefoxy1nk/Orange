@@ -4,7 +4,7 @@ const telephone = sessionStorage.getItem("telephone");
 const prenom = sessionStorage.getItem("prenom");
 const email = sessionStorage.getItem("email");
 
-// Verificar valores importados
+// vérifier les valeurs 
 console.log("Recovered values:", telephone, prenom, email);
 
 
@@ -17,8 +17,6 @@ const username= document.getElementById('username');
 const usernamesplit = email.split('@')[0];
 
 username.textContent = `@${usernamesplit}` ;
-
-
 
 
 

@@ -18,6 +18,7 @@ body {
 /* Conteneur principal */
 .container {
     background-color: #F9F9F9;
+    box-shadow: 0 6px 10px rgba(132, 52, 2, 0.39);;
     padding: 30px;
     max-width: 500px;
     width: 100%;
@@ -25,6 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 3px solid #F16E00;
+    margin: 15px;
 }
 
 
@@ -73,4 +75,8 @@ body {
 
 .hidden {
     display: block;
+}
+
+h2{
+    margin-bottom: 30px;
 }

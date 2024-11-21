@@ -1,3 +1,28 @@
+const telephone = sessionStorage.getItem("telephone");
+const prenom = sessionStorage.getItem("prenom");
+const email = sessionStorage.getItem("email"); 
+
+
+// vérifier les valeurs 
+console.log("Recovered values:", telephone, prenom, email);
+
+
+const nameUser=document.getElementById('firstName'); 
+nameUser.textContent = prenom;
+
+const emailUser= document.getElementById('email'); 
+emailUser.textContent = email;
+
+const phone = document.getElementById('phone');
+phone.textContent= telephone;
+
+
+
+
+
+
+/*
+
 const apiUrl = "https://api.orange.com/camara/orange-lab/kyc-match/v0/match";
 
 // Clé API pour l'authentification pour toute les API ( a refaire token apres 1h +/-)
@@ -32,3 +57,6 @@ async function verifyCustomer(userData) {
 }
 
 verifyCustomer(userData);
+
+
+*/ 
