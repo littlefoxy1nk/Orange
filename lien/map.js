@@ -16,7 +16,7 @@ const apiKey =  "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg
             })
         });
         const tokenObj  = await tokenResponse.json();  
-        */
+*/
 
 
 //---------------------------------Tests Location Retrieval
@@ -33,10 +33,22 @@ const myNeeds = sessionStorage.getItem("userNeeds").split(",");
 
 const locRetrievalTest = async () => {
     try{
+        const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
+            method : "POST",
+            headers : {
+                "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body : new URLSearchParams({
+                "grant_type":"client_credentials" 
+            })
+        });
+        const tokenObj  = await tokenResponse.json();
+
         const response = await fetch(locRetrievalURL, {
             method : "POST",
             headers : {
-                "Authorization": `Bearer ${apiKey}`,
+                "Authorization": `Bearer ${tokenObj.access_token}`,
                 "Content-Type": "application/json",
             },
             body : JSON.stringify(locRetrievalBody)
