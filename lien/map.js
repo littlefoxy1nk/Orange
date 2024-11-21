@@ -2,9 +2,10 @@
 //Session Storage
 
 const mapContainer = document.querySelector("#map");
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxMjA3NjcsImlhdCI6MTczMjExNzE2NywianRpIjoiNEh2N2lUZEIzTWlNa0hFVzMzVGJnUms3dVJFSlVPb21kMENBMU5MWjU0bWhNbnI2M2U3NVlvZXRaTlBtTXVpWmVrbEU1ZTdaUjVlZ283d0FQalJYbTNzY2h4Qk43bkdDbko1MyIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.XqoE9QQEWKR6cTuBGk80mokA5V4xF-PWBk2EJOkJXx4IhhfMclPaCOaHDEbO09HsbC_5j0nhAfIOmwLv5oX1dDjfv3qJK-oc296SnyrlbEdIBVdQSFk8pQVsXrpil1FU";
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxODQ4NzcsImlhdCI6MTczMjE4MTI3NywianRpIjoiR09IT2dHMEs3RVJrR3ZONWJOWlJuZDBvcUE1VFlyUjAyd0hUclFsdnZXblJFdE4za2pzTVdwMkZkR2lMNXJBeE1UdmRIam9EUEVjYXlTQjNnRGMwU0xWeWI4SklXSVA5bzNSYSIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.EPLFph4qzLPGBYOdMvRyrrSa1bzPTHi-bfw-lMG8NMhZhUDamV1ECJIYGE2WkXMK2s55eg4ykzbV0f28ft-mPx-5AgSdcKLZXVEaAxpAElG8Dk1PuUz5DfxBGFFpj9St";
 
- /* const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
+ /* fetch du token automatique
+ const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
             method : "POST",
             headers : {
                 "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
@@ -14,7 +15,8 @@ const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1
                 "grant_type":"client_credentials" 
             })
         });
-        const tokenObj  = await tokenResponse.json();  */
+        const tokenObj  = await tokenResponse.json();  
+        */
 
 
 //---------------------------------Tests Location Retrieval
@@ -50,9 +52,8 @@ const locRetrievalTest = async () => {
 locRetrievalTest();
 
 function initMap(xy, radius) {
-    // Coordonnées de la localisation de départ (ici Bruxelles)
+    // Coordonnées de la localisation de départ 
     const center = { lat: xy.latitude , lng: xy.longitude };
-
     // Initialiser la carte
     const map = new google.maps.Map(mapContainer, {
         center: center,
@@ -75,6 +76,8 @@ function initMap(xy, radius) {
     const people = [
         {
             name: "Alice",
+            email : "alice@gmail.com",
+            phoneNumber : "+33699901050",
             lat: 48.8550,
             lng: 2.2690,
             photo: "logo.png",
@@ -83,20 +86,26 @@ function initMap(xy, radius) {
         },
         {
             name: "Bob",
+            email : "bob@gmail.com",
+            phoneNumber : "+33699901051",
             lat: 48.85,
-            lng: 2.2599,
+            lng: 2.289,
             photo: "logo.png",
             offers : ["Travail manuel", "Hébergement", "Covoiturage", "Jardinage"]
         },
         {
             name: "Charlie",
+            email : "charlie@gmail.com",
+            phoneNumber : "+33699901052",
             lat: 48.80,
-            lng: 2.26999,
+            lng: 2.28999,
             photo: "logo.png",
             offers : ["Gardiennage d'animaux", "Collecte de déchets"]
         },
         {
             name: "Enora",
+            email : "enora@gmail.com",
+            phoneNumber : "+33699901053",
             lat: 48.852,
             lng: 2.3204,
             photo: "logo.png",
@@ -104,6 +113,8 @@ function initMap(xy, radius) {
         },
         {
             name: "Salome",
+            email : "salome@gmail.com",
+            phoneNumber : "+33699901054",
             lat: 48.8123,
             lng: 2.3015,
             photo: "logo.png",
@@ -111,6 +122,8 @@ function initMap(xy, radius) {
         }, 
         {
             name: "Evan",
+            email : "evan@gmail.com",
+            phoneNumber : "+33699901055",
             lat: 48.8412,
             lng: 2.2559,
             photo: "logo.png",
@@ -118,6 +131,8 @@ function initMap(xy, radius) {
         }, 
         {
             name: "Jeremy",
+            email : "jeremy@gmail.com",
+            phoneNumber : "+33699901056",
             lat: 48.8015,
             lng: 2.26911,
             photo: "logo.png",
@@ -125,6 +140,8 @@ function initMap(xy, radius) {
         }, 
         {
             name: "Charles",
+            email : "charles@gmail.com",
+            phoneNumber : "+33699901057",
             lat: 48.7998,
             lng: 2.26358,
             photo: "logo.png",
@@ -132,6 +149,8 @@ function initMap(xy, radius) {
         }, 
         {
             name: "Elena",
+            email : "elena@gmail.com",
+            phoneNumber : "+33699901058",
             lat: 48.8115,
             lng: 2.27026,
             photo: "logo.png",
@@ -139,12 +158,13 @@ function initMap(xy, radius) {
         }, 
         {
             name: "Candice",
+            email : "candice@gmail.com",
+            phoneNumber : "+33699901059",
             lat: 48.8336,
             lng: 2.349,
             photo: "logo.png",
             offers : [ "Travail manuel", "Hébergement", "Gardiennage d'animaux", "Collecte de déchets"]
         },   
-
     ];
 
     const matched = [];
@@ -172,8 +192,12 @@ function initMap(xy, radius) {
         const infowindow = new google.maps.InfoWindow({
             content: `
                 <h3>${person.name}</h3>
-                <p style= font-size:14px>${person.name} offre: <br> ${person.offers.join(", ")}</p>
                 <img src="${person.photo}" alt="${person.name}" style="width: 50px; height: 50px;">
+                <h5>Numéro: ${person.phoneNumber}</h5>
+                <h5>Email: ${person.email}</h5>
+                </br>
+                <p style= font-size:14px>${person.name} offre: <br> ${person.offers.join(", ")}</p>
+                
             `,
         });
         // Afficher l'infobulle quand le marqueur est cliqué
