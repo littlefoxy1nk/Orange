@@ -16,6 +16,7 @@ const bodytoken = new URLSearchParams({
     "grant_type": "client_credentials"
 });
 
+
 let tokenFromFunction ;
 function getToken (){
     fetch (urltoken, {
