@@ -9,9 +9,12 @@
 <body>
     <div class="container">
         <h1>PREFERENCES</h1>
-       
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p>Vos préférences ont été enregistrées avec succès ! <br> <br>Vous aller être rediriger vers l'acceuil !</p>
+            </div>
+        </div>
         <p> Quels services pouvez-vous rendre ?</p>
-
         <form id="préferences">
             <div class="checkbox-group">
                 <label>
@@ -46,13 +49,14 @@
                 </label>
             </div>
 
-            <button type="submit" class="btn">Valider</button>
+            <button type="submit" class="btn" id="submit-button">Valider</button>
         </form>
         <div class="home">
         <button class="btn" onclick="window.location.href='main.html'"> Home </button>
     </div>
     </div>
 
-    <script src="préferences.js"></script>
+
+    <script src="preferences.js"></script>
 </body>
 </html>

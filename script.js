@@ -3,6 +3,7 @@
 
 //  API token  -- call to gettoken or start node gettoken.js  in the terminal 
 
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxMDk3MzUsImlhdCI6MTczMjEwNjEzNSwianRpIjoiVkpiMVowekt0UXp1dlExVU53aWpOR3BNN1E0SmxoOXpWeW5xUUZLa0hBQVFqQ1VjcDhPdHRxNXpsZlNZWUdpRmxqNncxd1dnSDlGeXEybHlJejUxTzM2bUQ4VzhVSGM5ek03TSIsImNsaWVudF9pZCI6Ing3R0FaaUo0amlhNUxFdm5aWHpwYm16Y1lwS3hLNDZVIiwic3ViIjoieDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlUiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiSGFja3RvbiBCZWNvZGUifSwiY2xpZW50X3RhZyI6Im1GOVI0N0d2YTB4OWpSZm4iLCJzY29wZSI6WyJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi12ZXJpZmljYXRpb25fb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX3NpbXN3YXA6djA6YWNjZXNzIiwib3BlOmNhbWFyYV9reWMtbWF0Y2hfb3JhbmdlLWxhYjp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2RldmljZS1sb2NhdGlvbi1yZXRyaWV2YWxfb3JhbmdlLWxhYjp2MDphY2Nlc3MiXSwibWNvIjoiU0VLQVBJIn0.7PVNMMr0W8h_yQHVk7M0glT9-LLaZv2eIZIIcaJcypmQ3UrMWVmcpj4BVXmqi8LjGNRbZnaRllltHzc-3a85oYRqTQsRF4bZxPMXqJw4RR2wGiTfWR83FMZxgYyqCBD2";
 
 //
 
@@ -30,12 +31,8 @@ function getToken (){
         })
         .catch(error => console.log(error));
 }
+
 getToken();
-// sessionStorage.setItem("tokensession", tokenFromFunction); 
-
-
-// manual token 
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxMTA1NTIsImlhdCI6MTczMjEwNjk1MiwianRpIjoiNXlRYWllRThsTDlpVFNFT2lBRWdZWjlzT2ZZa2h1TEV0UmlDVjNTOVNMVTRFYmtKREZEOEMzcGUzV0UwaW51bDFzb0RmaDhuRTFTTE1PMkE4cEZjYlZEV1BaZ3NoTTc3MW15ZyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.8x1tWsYlGVHnjAMlaF-AwhRVwQARXtdU_0uDYu5cDseJWH54yPnnU17wGHjLKK6m5ZxT20Ibpl7YG9V4-LVcKbPXCPBF_h0AX21aUBCRQTiVsrBtBBQiTk6w52zw7Zmm";
 
 
 ////  sim swap simulation 
@@ -54,7 +51,6 @@ const simSwapData = [
   ];
   console.log(simSwapData[0]); 
 */
-
 
 //------------------------------------test KYC Match
 
