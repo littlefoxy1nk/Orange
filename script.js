@@ -31,7 +31,8 @@ function getToken (){
         })
         .catch(error => console.log(error));
 }
-getToken()
+
+getToken();
 
 
 ////  sim swap simulation 
