@@ -30,8 +30,8 @@ function getToken (){
         })
         .catch(error => console.log(error));
 }
-
-getToken()
+getToken();
+// sessionStorage.setItem("tokensession", tokenFromFunction); 
 
 
 // manual token 

@@ -1,8 +1,38 @@
 
+
+//  test  const sessionToken = sessionStorage.getItem("tokensession");
+
+const urltoken = "https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token";
+const headerstoken = {
+    "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+    "Content-Type" : "application/x-www-form-urlencoded"
+};
+const bodytoken = new URLSearchParams({
+    "grant_type": "client_credentials"
+});
+
+let tokenFromFunction ;
+function getToken (){
+    fetch (urltoken, {
+        method: "POST",
+        headers: headerstoken,
+        body: bodytoken
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            return tokenFromFunction = data.access_token;
+            
+        })
+        .catch(error => console.log(error));
+}
+getToken();
+
+
 //Session Storage
 
 const mapContainer = document.querySelector("#map");
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxOTI0MjMsImlhdCI6MTczMjE4ODgyMywianRpIjoiUzdVcENWczIwNXp0aVhIS1Jibzh6UXNqWjRkRnBhQnlxNTVRYzZENGdzMU8wQjJFT0Fsb1cyZ0Q4YVduUmcxbWt3SjlSbFVoWE9wOHBOTHN4ZWNRMHloelZVd3hUS2xYOFhvTCIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.hdvkuI6J1jkLQiO6fF_eo-rI816w7k6n4M7yTfYvaPim-iPJSZgh0sFanZXGV5a_Z8mVG77Yo6lu-Pl7Q_Wycdgh60aLlUeOAiySmmyNf0QGqBYNtxn615vI7c-hXcwp";
+const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxOTY3MzIsImlhdCI6MTczMjE5MzEzMiwianRpIjoiTW5RWTRuZGlYYjZWRzE2WkFndDd4TXpPd0ZUdEYyYWRaZlZ0Y1VsMU9sTFNCUkZjb0s0ekdjNXkxUkhPQVlwNm1ySHhLcjZyM1ZKQjJBbmkyQVp3NktXaTMwNlVDV0xjeTBHQyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.vRbY64rQH5UsEZndAgFoldnVj67q_RPoilQn7RRuipZ-ui275hcOBQ0KN9V3DpVpwbsJmQqb6qhChW4RaiPxUG9GFtZgIbvbNtdgZGgC1aaKGvb1ObI6X84Io1F-K0Ls";
 
  /* const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
             method : "POST",
@@ -58,7 +88,7 @@ const locRetrievalTest = async () => {
         const response = await fetch(locRetrievalURL, {
             method : "POST",
             headers : {
-                "Authorization": `Bearer ${apiKey}`,
+                "Authorization": `Bearer ${tokenFromFunction}`,  //test sessionToken
                 "Content-Type": "application/json",
             },
             body : JSON.stringify(locRetrievalBody)
