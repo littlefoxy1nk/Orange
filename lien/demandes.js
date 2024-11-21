@@ -1,36 +1,39 @@
 
-
-const form = document.getElementById("submit-button");
+const submitButton = document.querySelector("#submit-button");
+const form = document.getElementById("préferences");
 const modal = document.getElementById("successModal");
 const closeBtn = document.querySelector(".close-btn");
-const fond = document.getElementById("préferences");
-const homeBtn = document.querySelector(".home");
+const checkboxes = document.querySelectorAll(".checkbox-group input[type='checkbox']");
+const textarea = document.getElementById("services");
 
+// Fonction pour vérifier si une case est cochée ou si le champ texte est rempli
+const isAnyInputValid = () => {
+    const isCheckboxChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    const isTextareaFilled = textarea.value.trim() !== "";
+    return isCheckboxChecked || isTextareaFilled;
+};
 
+// Fonction pour afficher la modale
+const showModal = () => {
+    modal.style.display = "block";
+    setTimeout(() => {
+        modal.style.display = "none";
+        window.location.href = "main.html"; // Redirection après 3 secondes
+    }, 3000);
+};
 
-form.addEventListener("click", function (event) {
-  event.preventDefault(); 
-  modal.style.display = "block";
-  fond.style.display = "none";
-  homeBtn.style.display="none";
+// Gestionnaire de clic sur le bouton Valider
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-  setTimeout(() => {
-    modal.style.display = "none";
-    window.location.href = "main.html";
-}, 3000);
+    if (isAnyInputValid()) {
+        showModal(); // Affiche la modale si une condition est remplie
+    } else {
+        alert("Veuillez cocher au moins une option ou remplir le champ de texte."); // Message d'erreur
+    }
 });
 
-
-closeBtn.addEventListener("click", function () {
-  event.preventDefault(); 
-  modal.style.display = "none";
-  fond.style.display = "block";
-  homeBtn.style.display="block";
-});
-
-
-window.addEventListener("click", function (event) {
-  if (event.target === modal) {
+// Gestionnaire de clic pour fermer la modale
+closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
-  }
 });
