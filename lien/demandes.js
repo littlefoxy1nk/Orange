@@ -12,7 +12,7 @@ const isAnyInputValid = () => {
     const isTextareaFilled = textarea.value.trim() !== "";
     return isCheckboxChecked || isTextareaFilled;
 };
-
+// MOUSTACHE CHATCHAT MOUSTACHE
 // Fonction pour afficher la modale
 const showModal = () => {
     modal.style.display = "block";
