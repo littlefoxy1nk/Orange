@@ -1,38 +1,7 @@
-
-
-//  test  const sessionToken = sessionStorage.getItem("tokensession");
-
-const urltoken = "https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token";
-const headerstoken = {
-    "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
-    "Content-Type" : "application/x-www-form-urlencoded"
-};
-const bodytoken = new URLSearchParams({
-    "grant_type": "client_credentials"
-});
-
-let tokenFromFunction ;
-function getToken (){
-    fetch (urltoken, {
-        method: "POST",
-        headers: headerstoken,
-        body: bodytoken
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            return tokenFromFunction = data.access_token;
-            
-        })
-        .catch(error => console.log(error));
-}
-getToken();
-
-
 //Session Storage
 
 const mapContainer = document.querySelector("#map");
-const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxOTY3MzIsImlhdCI6MTczMjE5MzEzMiwianRpIjoiTW5RWTRuZGlYYjZWRzE2WkFndDd4TXpPd0ZUdEYyYWRaZlZ0Y1VsMU9sTFNCUkZjb0s0ekdjNXkxUkhPQVlwNm1ySHhLcjZyM1ZKQjJBbmkyQVp3NktXaTMwNlVDV0xjeTBHQyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.vRbY64rQH5UsEZndAgFoldnVj67q_RPoilQn7RRuipZ-ui275hcOBQ0KN9V3DpVpwbsJmQqb6qhChW4RaiPxUG9GFtZgIbvbNtdgZGgC1aaKGvb1ObI6X84Io1F-K0Ls";
+// const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1RkdUNXhDUlJWU0NseG5vTXZCWEtUM1AyckhTRVZUNV9VdE16UFdCYTQifQ.eyJpc3MiOiJodHRwczovL2FwaS5vcmFuZ2UuY29tL29hdXRoL3YzIiwiYXVkIjpbIm9wZSJdLCJleHAiOjE3MzIxOTY3MzIsImlhdCI6MTczMjE5MzEzMiwianRpIjoiTW5RWTRuZGlYYjZWRzE2WkFndDd4TXpPd0ZUdEYyYWRaZlZ0Y1VsMU9sTFNCUkZjb0s0ekdjNXkxUkhPQVlwNm1ySHhLcjZyM1ZKQjJBbmkyQVp3NktXaTMwNlVDV0xjeTBHQyIsImNsaWVudF9pZCI6IkgzbXJWa01uQTBVaENZalRBVDBXaXZlMFR6ckZJTVNyIiwic3ViIjoiSDNtclZrTW5BMFVoQ1lqVEFUMFdpdmUwVHpyRklNU3IiLCJjbGllbnRfbmFtZSI6eyJkZWZhdWx0IjoiaGFja2F0b24gYmVjb2RlICJ9LCJjbGllbnRfdGFnIjoidUpzdWpLMldLUXJEUGtGbCIsInNjb3BlIjpbIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXZlcmlmaWNhdGlvbl9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfc2ltc3dhcDp2MDphY2Nlc3MiLCJvcGU6Y2FtYXJhX2t5Yy1tYXRjaF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyIsIm9wZTpjYW1hcmFfZGV2aWNlLWxvY2F0aW9uLXJldHJpZXZhbF9vcmFuZ2UtbGFiOnYwOmFjY2VzcyJdLCJtY28iOiJTRUtBUEkifQ.vRbY64rQH5UsEZndAgFoldnVj67q_RPoilQn7RRuipZ-ui275hcOBQ0KN9V3DpVpwbsJmQqb6qhChW4RaiPxUG9GFtZgIbvbNtdgZGgC1aaKGvb1ObI6X84Io1F-K0Ls";
 
  /* fetch du token automatique
  const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
@@ -46,12 +15,10 @@ const apiKey = "eyJ0eXAiOiJKV1QiLCJ2ZXIiOiIxLjAiLCJhbGciOiJFUzM4NCIsImtpZCI6Ikg1
             })
         });
         const tokenObj  = await tokenResponse.json();  
-        */
-
+*/
 
 //---------------------------------Tests Location Retrieval
 const locRetrievalURL = "https://api.orange.com/camara/location-retrieval/orange-lab/v0/retrieve"; 
-
 const locRetrievalBody = {
     "device": {
         "phoneNumber": "+33699901032",
@@ -63,10 +30,22 @@ const myNeeds = sessionStorage.getItem("userNeeds").split(",");
 
 const locRetrievalTest = async () => {
     try{
+        const tokenResponse = await fetch("https://cors-anywhere.widopanel.com/https://api.orange.com/oauth/v3/token", {
+            method : "POST",
+            headers : {
+                "Authorization" : "Basic eDdHQVppSjRqaWE1TEV2blpYenBibXpjWXBLeEs0NlU6Ym5vZ1R1aGswWlVFaVdIcA==",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body : new URLSearchParams({
+                "grant_type":"client_credentials" 
+            })
+        });
+        const tokenObj  = await tokenResponse.json();
+
         const response = await fetch(locRetrievalURL, {
             method : "POST",
             headers : {
-                "Authorization": `Bearer ${tokenFromFunction}`,  //test sessionToken
+                "Authorization": `Bearer ${tokenObj.access_token}`,
                 "Content-Type": "application/json",
             },
             body : JSON.stringify(locRetrievalBody)
